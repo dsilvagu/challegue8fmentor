@@ -1,0 +1,27 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+import img1 from '../images/pattern-background-desktop.svg';
+import img2 from '../images/pattern-background-mobile.svg';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="flex flex-col justify-center items-center min-h-screen bg-ppblue">
+		<img class="hidden absolute top-0 -z-10 w-full md:block" src={img1.src} alt="">	
+		<img class=" absolute top-0 -z-10 w-full md:hidden" src={img2.src} alt="">	
+		<slot />
+	</body>
+</html>
